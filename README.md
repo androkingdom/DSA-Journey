@@ -17,7 +17,7 @@ This repository serves as a resource for anyone looking to learn about data stru
 To get started with this repository, clone it to your local machine:
 
 ```bash
-git clone https://github.com/your-username/dsa-in-c.git
+git clone https://github.com/androkingdom/dsa-journey.git
 ```
 
 ## Data Structures
