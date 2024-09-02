@@ -3,12 +3,12 @@
 Welcome to the **Data Structures and Algorithms in C** repository! This repository is dedicated to learning and implementing fundamental data structures and algorithms using the C programming language.
 
 ## Table of Contents 📜
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Data Structures](#data-structures)
-- [Algorithms](#algorithms)
-- [Contributing](#contributing)
-- [License](#license)
+- [Introduction 🚀](#introduction-🚀)
+- [Getting Started 🛠️](#getting-started-🛠️)
+- [Data Structures 📊](#data-structures-📊)
+- [Algorithms 🔍](#algorithms-🔍)
+- [Contributing 🤝](#contributing-🤝)
+- [License 📄](#license-📄)
 
 ## Introduction 🚀
 This repository serves as a resource for anyone looking to learn about data structures and algorithms in C. Each implementation includes code examples, explanations, and usage scenarios.
