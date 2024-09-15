@@ -57,9 +57,9 @@ int main() {
     Allocate(&marks, 5);  // Allocate memory for 5 elements
     
     setElement(&marks);   // Set elements in the array
+    
     // showElements(&marks);  // Uncomment to show all elements
     lastElement(&marks);  // Show the last element
-    
     freeArray(&marks);    // Free the allocated memory
     return 0;
 }
