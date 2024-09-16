@@ -1,65 +1,136 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure to represent the array
-typedef struct my_array {
-    int* ptr;       // Pointer to dynamically allocated memory
-    int size;       // Store the size of the array within the structure
-} my_array;
+typedef struct List {
+    int* ptr;
+    int size;
+} List;
 
-// Function to allocate memory for the array
-void Allocate(my_array* a, int memory) {
-    a->size = memory;  // Store the size in the structure
-    a->ptr = (int*) malloc(memory * sizeof(int));  // Allocate memory based on the size passed
-    if (a->ptr == NULL) {  // Check if memory allocation failed
-        printf("Memory allocation failed!\n");
-        exit(1);  // Exit the program if malloc fails
+// Function prototypes
+void InitList(List* ListVar, int size);
+void SetElements(List* ListVar, int array[], int array_size);
+int GetElementAt(List* ListVar, int index);
+void ShowList(List* ListVar);
+int IndexOf(List* ListVar, int number);
+int Max(List* ListVar);
+int Min(List* ListVar);
+int SumAll(List* ListVar);
+int Contain(List* ListVar, int number);
+void FreeAll(List* ListVar);
+
+// Initialize the List with the specified size
+void InitList(List* ListVar, int size) {
+    ListVar->ptr = (int*) malloc(size * sizeof(int));
+    if (ListVar->ptr == NULL) {
+        printf("Error: Memory Not Allocated\n");
+        return;
     }
-    printf("Memory for %d elements allocated\n", memory);
+    ListVar->size = size;
 }
 
-// Function to set elements in the array
-void setElement(my_array* a) {
-    for (int i = 0; i < a->size; i++) {
-        printf("Enter Number %d: ", i + 1);
-        scanf("%d", &a->ptr[i]);
-    }
-}
-
-// Function to print all elements of the array
-void showElements(my_array* a) {
-    for (int i = 0; i < a->size; i++) {
-        printf("%d is at index %d\n", a->ptr[i], i);
-    }
-}
-
-// Function to get the last element of the array
-void lastElement(my_array* a) {
-    if (a->size > 0) {
-        printf("Last element: %d\n", a->ptr[a->size - 1]);
-    } else {
-        printf("Array is empty\n");
+// Set elements of the List from an array
+void SetElements(List* ListVar, int array[], int array_size) {
+    for (int i = 0; i < ListVar->size; i++) {
+        ListVar->ptr[i] = array[i];
     }
 }
 
-// Function to free the dynamically allocated memory
-void freeArray(my_array* a) {
-    free(a->ptr);  // Free the allocated memory
-    a->ptr = NULL; // Set pointer to NULL to avoid dangling pointer
-    a->size = 0;   // Reset the size
+// Get the element at a specific index
+int GetElementAt(List* ListVar, int index) {
+    if (index < 0 || index >= ListVar->size) {
+        printf("Error: Index out of bounds\n");
+        return -1; // Indicate an error
+    }
+    return ListVar->ptr[index];
 }
 
-// Main function demonstrating the use of the array ADT
+// Show all elements in the List
+void ShowList(List* ListVar) {
+    printf("[");
+    for (int i = 0; i < ListVar->size; i++) {
+        printf("%d", ListVar->ptr[i]);
+        if (i != (ListVar->size) - 1) {
+            printf(", ");
+        }
+    }
+    printf("]");
+    printf("\n");
+}
+
+// Find the index of a specific number in the List
+int IndexOf(List* ListVar, int number) {
+    for (int index = 0; index < ListVar->size; index++) {
+        if (ListVar->ptr[index] == number) {
+            return index;
+        }
+    }
+    return -1; // Return -1 if number is not found
+}
+
+// Find the maximum value in the List
+int Max(List* ListVar) {
+    if (ListVar->size == 0) {
+        printf("Error: List is empty\n");
+        return -1; // Indicate an error
+    }
+    int max = ListVar->ptr[0];
+    for (int i = 1; i < ListVar->size; i++) {
+        if (ListVar->ptr[i] > max) {
+            max = ListVar->ptr[i];
+        }
+    }
+    return max;
+}
+
+// Find the minimum value in the List
+int Min(List* ListVar) {
+    if (ListVar->size == 0) {
+        printf("Error: List is empty\n");
+        return -1; // Indicate an error
+    }
+    int min = ListVar->ptr[0];
+    for (int i = 1; i < ListVar->size; i++) {
+        if (ListVar->ptr[i] < min) {
+            min = ListVar->ptr[i];
+        }
+    }
+    return min;
+}
+
+// Calculate the sum of all elements in the List
+int SumAll(List* ListVar) {
+    int sum = 0;
+    for (int i = 0; i < ListVar->size; i++) {
+        sum += ListVar->ptr[i];
+    }
+    return sum;
+}
+
+// Check if a specific number exists in the List
+int Contain(List* ListVar, int number) {
+    for (int i = 0; i < ListVar->size; i++) {
+        if (ListVar->ptr[i] == number) {
+            return 1; // Return 1 (true) if number is found
+        }
+    }
+    return 0; // Return 0 (false) if number is not found
+}
+
+// Free memory allocated for the List
+void FreeAll(List* ListVar) {
+    free(ListVar->ptr);
+    ListVar->ptr = NULL; // Set pointer to NULL to avoid dangling pointer
+}
+
 int main() {
-    printf("My Structure!\n");
-    
-    my_array marks;   // Create an instance of my_array
-    Allocate(&marks, 5);  // Allocate memory for 5 elements
-    
-    setElement(&marks);   // Set elements in the array
-    
-    // showElements(&marks);  // Uncomment to show all elements
-    lastElement(&marks);  // Show the last element
-    freeArray(&marks);    // Free the allocated memory
+    List list;
+    int a[5] = {1, 2, 3, 4, 5};
+    InitList(&list, 5);
+    int array_size = sizeof(a) / sizeof(a[0]);
+    SetElements(&list, a, array_size);
+    ShowList(&list);
+    printf("Max. number in list: %d\n", Max(&list));
+    printf("Min. number in list: %d\n", Min(&list));
+    FreeAll(&list);
     return 0;
 }
