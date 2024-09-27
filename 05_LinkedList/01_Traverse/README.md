@@ -14,6 +14,9 @@ A **Linked List** is a dynamic data structure where each element, called a **Nod
 
 Unlike arrays, linked lists are not stored in contiguous memory blocks, allowing for efficient insertions and deletions.
 
+![Linked List Visualization](https://media.geeksforgeeks.org/wp-content/uploads/20220712172013/Singlelinkedlist.png)  
+*Visual representation of a Singly Linked List with 3 nodes*
+
 ---
 
 ## Why Use a Linked List?
@@ -113,6 +116,15 @@ A linked list is often visualized as a series of boxes, where each box contains 
 Linked lists are a fundamental data structure that offer flexibility in memory management and efficient insertions and deletions. This code demonstrates a basic linked list traversal in C, helping understand its structure and operations.
 
 For more advanced operations like insertion, deletion at specific positions, or sorting, linked lists provide a versatile tool, especially when dynamic memory management is crucial.
+
+---
+
+### Usage
+To compile and run the code:
+```
+gcc linkedlist.c -o linkedlist
+./linkedlist
+```
 
 ---
 
