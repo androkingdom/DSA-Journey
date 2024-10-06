@@ -3,7 +3,7 @@
 ## Overview
 This project implements a parentheses matching solution using a stack. A stack is a data structure that operates on a Last In, First Out (LIFO) principle. In this program, we use a stack to check if the parentheses in a given expression are balanced. This is essential in validating mathematical expressions, programming syntax, and more. 
 
-![Stack and Parentheses Matching Diagram](/07_StackADT/Application/image.png)
+![Stack and Parentheses Matching Diagram](/07_StackADT/Application/01_ParenthesesMatching/image.png)
 
 **How it Works:**  
 1. Each time we encounter an opening parenthesis `(`, we push it onto the stack.

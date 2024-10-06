@@ -3,7 +3,7 @@
 ## Overview
 This project demonstrates the use of a **stack** data structure to check if parentheses in a given expression are balanced. It supports three types of parentheses: `()`, `[]`, and `{}`. This code provides a simple yet efficient solution for validating balanced parentheses using the fundamental operations of a stack.
 
-![Multiple Parentheses Matching](/07_StackADT/Application/image.png)
+![Multiple Parentheses Matching](/07_StackADT/Application/01_ParenthesesMatching/image.png)
 
 ## Problem Explanation
 The primary goal is to ensure every opening parenthesis has a corresponding closing parenthesis in the correct order. The algorithm uses a stack to keep track of opening parentheses and ensures they match the closing ones encountered as we iterate through the expression.
